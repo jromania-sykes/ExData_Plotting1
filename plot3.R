@@ -8,9 +8,12 @@ plot3<-function(){
     df$DateTime <- as.POSIXct(paste(df$Date, df$Time), format="%d/%m/%Y %H:%M:%S")
     #create png device
     png('~/datascience/ExData_Plotting1/plot3.png',width=480,height=480)
+	#draw plot with proper labels
 	plot(df$DateTime,df$Sub_metering_1,type='l',ylab='Energy sub metering',xlab='')
+	#add additional lines
 	lines(df$DateTime,df$Sub_metering_2,col='red')
 	lines(df$DateTime,df$Sub_metering_3,col='blue')
+	#setup the legend
 	legend("topright",40,c('Sub_metering_1','Sub_metering_2','Sub_metering_3'),lwd=c(1,1),col=c("black","red","blue"),cex=.7,lty=1)
 	dev.off()
 }
